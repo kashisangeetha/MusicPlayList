@@ -16,8 +16,7 @@ export const MusicTrackImage = styled.img`
   width: 140px;
   margin-right: 20px;
 `
-export const NameGenreContainer = styled.div`
-`
+export const NameGenreContainer = styled.div``
 export const Name = styled.p`
   font-family: 'Roboto';
   color: #ffffff;
@@ -40,7 +39,7 @@ export const Duration = styled.p`
   color: #ffffff;
   font-size: 20px;
   font-weight: bold;
-  margin-right:50px;
+  margin-right: 50px;
 `
 export const DeleteButton = styled.button`
   background-color: transparent;
@@ -48,5 +47,4 @@ export const DeleteButton = styled.button`
   cursor: pointer;
   border: none;
   color: #ffffff;
-`       
-    
+`

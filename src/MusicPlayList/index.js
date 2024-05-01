@@ -108,60 +108,55 @@ class MusicPlayList extends Component {
   }
 
   onClickDeleteTrack = id => {
-      const {playList} = this.state
-      const updatedPlayList = playList.filter(each => each.id !== id)
-      this.setState({playList: updatedPlayList}) 
+    const {playList} = this.state
+    const updatedPlayList = playList.filter(each => each.id !== id)
+    this.setState({playList: updatedPlayList})
   }
 
   renderNoSongsFoundView = () => (
-      <EmptyContainer>
-          <NoSongsText>No Songs Found</NoSongsText>
-      </EmptyContainer>
+    <EmptyContainer>
+      <NoSongsText>No Songs Found</NoSongsText>
+    </EmptyContainer>
   )
 
-  render() (
-      const {playList, searchInput} = this.state
-      const searchResults = playList.filter(eachTrack =>
-        eachTrack.name.toLowerCase().includes(searchInput.toLowerCase()),
-        )
-
-        return (
-            <BgContainer>
-            <ArtistBg data-testid="artist-details">
-                <ArtistName>
-                    Ed Sheeran
-                    <br />
-                    <ArtistInfo>Singer</ArtistInfo>
-                </ArtistName>
-            </ArtistBg>
-            <PlayListContainer>
-                <PlayListHeading>Songs Playlist</PlayListHeading>
-                <SearchInput
-                type="search"
-                value={searchInput}
-                placeholder="Search"
-                onChange={this.onChangeSearchInput}
-                />
-
-            </PlayListContainer>
-            {searchResults.length === 0 ? (
-                this.renderNoSongsFoundView()
-            ) : (
-                <MusicList>
-                    {searchResults.map(eachItem => (
-                        <MusicItem
-                        key={eachItem.id}
-                        MusicItemDetails={eachItem}
-                        onClickDeleteTrack={this.onClickDeleteTrack}
-                        />
-                    ))}
-                </MusicList>
-            )}
-          </BgContainer>
-        )
-    }
+  render() {
+    const {playList, searchInput} = this.state
+    const searchResults = playList.filter(eachTrack =>
+      eachTrack.name.toLowerCase().includes(searchInput.toLowerCase()),
+    )
+    return (
+      <BgContainer>
+        <ArtistBg data-testid="artist-details">
+          <ArtistName>
+            Ed Sheeran
+            <br />
+            <ArtistInfo>Singer</ArtistInfo>
+          </ArtistName>
+        </ArtistBg>
+        <PlayListContainer>
+          <PlayListHeading>Songs Playlist</PlayListHeading>
+          <SearchInput
+            type="search"
+            value={searchInput}
+            placeholder="Search"
+            onChange={this.onChangeSearchInput}
+          />
+        </PlayListContainer>
+        {searchResults.length === 0 ? (
+          this.renderNoSongsFoundView()
+        ) : (
+          <MusicList>
+            {searchResults.map(eachItem => (
+              <MusicItem
+                key={eachItem.id}
+                MusicItemDetails={eachItem}
+                onClickDeleteTrack={this.onClickDeleteTrack}
+              />
+            ))}
+          </MusicList>
+        )}
+      </BgContainer>
+    )
+  }
 }
 export default MusicPlayList
-
-
-

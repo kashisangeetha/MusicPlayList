@@ -1,4 +1,4 @@
-import MusicPlayList from './components/MusicPlayList'
+import MusicPlayList from './MusicPlayList'
 
 import './App.css'
 
